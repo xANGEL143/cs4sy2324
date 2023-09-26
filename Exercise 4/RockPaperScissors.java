@@ -1,3 +1,5 @@
+package exercise4;
+
 import java.util.Scanner;
 
 public class RockPaperScissors {
@@ -29,14 +31,16 @@ public class RockPaperScissors {
 
             Move computerMove;
             Move userMove;
-
+            playerScore = 0; 
+            computerScore = 0;
+            
             if (choice == 1) {
                 System.out.println("");
                 System.out.println("This match will be first to " + roundsToWin + " wins.");
 
                 while (playerScore < roundsToWin && computerScore < roundsToWin) {
                     int random = (int) Math.floor(Math.random() * 3) + 1;
-
+                    
                     System.out.println("");
                     System.out.println("The computer has selected its move. Select your move:");
                     System.out.println("1. Rock");
@@ -65,7 +69,7 @@ public class RockPaperScissors {
                     System.out.print("Player chose " + userMove.getName() + ". Computer chose " + computerMove.getName() + ". ");
 
                     int winner = Move.compareMoves(computerMove, userMove);
-
+                    
                     if (winner == 1) {
                         System.out.print("Player wins round!");
                         playerScore++;
