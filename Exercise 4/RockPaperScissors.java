@@ -66,10 +66,10 @@ public class RockPaperScissors {
 
                     int winner = Move.compareMoves(computerMove, userMove);
 
-                    if (winner == 0) {
+                    if (winner == 1) {
                         System.out.print("Player wins round!");
                         playerScore++;
-                    } else if (winner == 1) {
+                    } else if (winner == 0) {
                         System.out.print("Computer wins round!");
                         computerScore++;
                     } else {
