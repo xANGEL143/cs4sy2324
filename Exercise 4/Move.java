@@ -1,3 +1,5 @@
+package Exercise4;
+
 public class Move {
 	
     private final String name;
