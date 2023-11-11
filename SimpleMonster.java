@@ -39,19 +39,25 @@ public class SimpleMonster {
     public void attack(Monster m){
         int damage = (int) ((atk*atk)/(double)(atk+m.getDef()));    // damage is calculated as  double, then cast as int
         boolean strong = false, weak = false;
+
         if(strongAgainst.equals(m.type)){
             damage *= 2;
             strong = true;
         }
+
         if(weakAgainst.equals(m.type)){
             damage *= 0.5;
             weak = true;
         }
+
         m.hp -= damage;
+
         if(m.hp < 0) m.hp = 0;
             System.out.println(name  + " attacked " + m.getName() +
             " and dealt " + damage + " damage, reducing it to " + m.getHP() + "HP.");
+        
         if(strong) System.out.println("It was super effective!");
+
         if(weak) System.out.println("It wasn't very effective...");
 
         if(m.hp <= 0){
@@ -60,6 +66,13 @@ public class SimpleMonster {
         }
     }
 
+    public void fight(Monster m, Monster p){
+        while(m.getHP() != 0 || p.getHP() != 0){
+            m.attack(p); 
+            p.attack(m);
+        }
+    }
+    
     public void special(){
         System.out.println(name + " did a pose.");
     }
@@ -67,5 +80,4 @@ public class SimpleMonster {
     public void restoreHealth(){
         hp = maxHP;
     }
-
 }
